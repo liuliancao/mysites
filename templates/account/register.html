@@ -3,35 +3,13 @@
         <title>欢迎您zhuce</title>
     </head>
     </body>
-    <form method="post" action="/checklogin">
-    {% csrf_token %}
-        <table>
-        <tr>
-            <td>user:</td>
-            <td><input type="text" id="username" /></td>
-        </tr>
-        <tr>
-            <td>password:</td>
-            <td><input type="password" id="password" /></td>
-        </tr>
-        </table>
-
-        <input type="submit" value="login" />
-        <input type="hidden" name="next" value="{{ next }}" />
+    <form method="post" action="/account/register" enctype="multipart/form-data" >
+    {{ uf.as_p }}
+    {% if errors %}}
+    error:
+    {{errors}}
+    {% endif %}
+        <input type="submit" value="register" />
     </form>
     </body>
-</html>
-
-
-
-
-
-
-
-
-
-
-
-
-
 </html>

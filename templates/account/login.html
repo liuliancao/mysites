@@ -1,44 +1,16 @@
-    {% extends "base.html" %}
 <html>
     <head>
-        <title>欢迎您登录</title>
+        <title>欢迎您zhuce</title>
     </head>
     </body>
-
-    {% block content %}
-    {% if form.errors %}
-        <p>抱歉，用户名密码不匹配，请重新确认下</p>
+    <form method="post" action="/account/login" enctype="multipart/form-data" >
+    {{ uf.username }}
+    {{ uf.password }}
+    {% if errors %}}
+    error:
+    {{errors}}
     {% endif %}
-    <form method="post" action=".">
-    {% csrf_token %}
-        <table>
-        <tr>
-            <td><label for="id_username">user:</label></td>
-            <td>{{ form.username }}</td>
-        </tr>
-        <tr>
-            <td><label for="id_password">password:</label></td>
-            <td>{{ form.password }}</td>
-        </tr>
-        </table>
-
         <input type="submit" value="login" />
-        <input type="hidden" name="next" value="{{ next }}" />
     </form>
-    {% endblock %}
     </body>
-</html>
-
-
-
-
-
-
-
-
-
-
-
-
-
 </html>

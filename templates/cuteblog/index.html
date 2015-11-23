@@ -7,29 +7,39 @@
     <meta name="description" content="this is web sharing website."/>
     <!-- get css file -->
     {% load staticfiles %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/blog.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/nav.css' %}" />
 </head>
 
-<body>
-    <div id="topdiv">      
-        <h3>HELLO，YOU</h3>
-        <hr />
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;开心，快乐每一天 !</p>
-        <span class="first"><a href="/account/login">登录</a></span>
-        <span class="first"><a href="/account/register">注册</a></span>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;开心，快乐每一天 !</p>
-        <span class="second"><a href="/account/login">登录</a></span>
-        <span class="second"><a href="/account/register">注册</a></span>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;开心，快乐每一天 !</p>
-        <span class="third"><a href="/account/login">登录</a></span>
-        <span class="third"><a href="/account/register">注册</a></span>
+<body>     
+    <!-- top navigation --> 
+    <div id="topdiv">
+        <h1><a href="#">blog</a>&nbsp;&nbsp;
+        		<span id="login_resiter_logout">
+        		<a href="/account/login">login</a>&nbsp;&nbsp;
+        		<a href="/account/register">register</a>&nbsp;&nbsp;
+        		<a href="/account/logout">logout</a>
+        		</span>
+        </h1>
+        <span id='welcome'>hello&nbsp;&nbsp;<strong>{{username}}</strong>&nbsp;,欢迎来到liuliancao的小站.</span>
+        <hr width="100%" style="color:red;" />
     </div>
-    
+
+    <!-----article-area---->
     <div id="middlediv">
-    
-    
-    
-    
+    <br />
+    <br />
+    <table>
+        <tbody>
+        
+        <td>
+        {% for article in article_list_10 %}
+        <tr><h3><a href="/blog/{{article.user}}/{{article.id}}">{{article.title}}</a></h3></tr>
+        <p>{{article.text}}</p>
+        <abbr>{{article.user}} 写于 {{article.date}}</abbr>
+        {% endfor %}
+        </td>
+        
     </div>
+
 </body>
 </html>
