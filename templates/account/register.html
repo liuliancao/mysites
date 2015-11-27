@@ -1,15 +1,22 @@
 <html>
     <head>
-        <title>欢迎您zhuce</title>
+    	  {% load staticfiles %}
+    	  <link rel="stylesheet" type="text/css" href="{% static 'css/register.css'%}"/>
+        <title>thanks for register</title>
     </head>
     </body>
-    <form method="post" action="/account/register" enctype="multipart/form-data" >
-    {{ uf.as_p }}
-    {% if errors %}}
-    error:
-    {{errors}}
-    {% endif %}
-        <input type="submit" value="register" />
-    </form>
+    <div class="wrap">
+
+	    <form class="dialog" method="post" action="/account/register" enctype="multipart/form-data" >
+			    <p>username:{{ uf.username }}</p>
+			    <p>password:{{uf.password}}</p>
+			    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;headimg:{{uf.headimg}}</p>
+			    {% if errors %}}
+			    error:
+			    {{errors}}
+			    {% endif %}
+	          <input id="register" type="submit" value="register" />
+	    </form>
+    </div>
     </body>
 </html>

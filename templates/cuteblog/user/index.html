@@ -3,16 +3,32 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	{% load staticfiles %}
+	<link rel="stylesheet" type="text/css" href="{% static 'css/header.css' %}" />	
+	<link rel="stylesheet" type="text/css" href="{% static 'css/user.css' %}" />	
 	<title>{{username}}'s blog</title>
+  
 </head>
 <body>
-	<ul>
-   {% for article in article_list %}
-   <li><h3>title:{{article.title}}</h3></li>
-   <li><p>text:{{article.text}}</li>
-   <li>author:{{article.user.username}}</li>
-   <li>time:{{article.date}}</li>
-   </ul>
-   {% endfor %}
+	<div class="wrap">
+			<div class="header">
+			
+			</div>
+			<div class="mainbody">
+			   {% if article_list %}
+	         	 {% for article in article_list %}
+				 	     <ul>
+				        <li><h3><a href="/blog/{{article.user.username}}/{{article.id}}">{{article.title}}</a></h3></li>
+				        <li>写于{{article.date}}</li>
+				        <br />
+				        </ul>
+		         {% endfor %}
+			   {% else %}
+		          <p>sorry,user does not exists.</p>			
+		     {% endif %}
+	     </div>
+	   <a href="/blog/{{username}}/write_blog">写博客</a>
+   </div>
+
 </body>
 </html>

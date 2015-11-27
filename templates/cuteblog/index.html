@@ -1,4 +1,4 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
 <head>
     <meta  http-equiv="Content-Type" content="text/html;charset=utf8" />
@@ -7,39 +7,37 @@
     <meta name="description" content="this is web sharing website."/>
     <!-- get css file -->
     {% load staticfiles %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/nav.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/header.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/mainbody.css' %}" />
+    <title>liuliancao</title>
 </head>
 
-<body>     
-    <!-- top navigation --> 
-    <div id="topdiv">
-        <h1><a href="#">blog</a>&nbsp;&nbsp;
-        		<span id="login_resiter_logout">
-        		<a href="/account/login">login</a>&nbsp;&nbsp;
-        		<a href="/account/register">register</a>&nbsp;&nbsp;
-        		<a href="/account/logout">logout</a>
-        		</span>
-        </h1>
-        <span id='welcome'>hello&nbsp;&nbsp;<strong>{{username}}</strong>&nbsp;,欢迎来到liuliancao的小站.</span>
-        <hr width="100%" style="color:red;" />
-    </div>
+<body>   
+	<div class="wrap">  
+	    <!-- top navigation --> 
+	    <div id="header" >
+	         <div id="logo"><a href="/blog"><span id="p1"><img src="{% static 'img/logo3.png' %}"</a></div></a>
+	         <p id="welcome">Hello&nbsp;&nbsp;<a href="/blog/{{username}}" ><span>{{username}}</span></a>&nbsp;,welcome to liuliancao's website.</p>
+	     		<p id="sideright">
+		        		<a  href="/account/register">register</a>&nbsp;&nbsp;
+		        		<a  href="/account/login">login</a>&nbsp;&nbsp;
+		        		<a  href="/account/logout">logout</a>
+	     		</p>
+	        
+		  <hr >	    
+	    </div>
+      
 
-    <!-----article-area---->
-    <div id="middlediv">
-    <br />
-    <br />
-    <table>
-        <tbody>
-        
-        <td>
-        {% for article in article_list_10 %}
-        <tr><h3><a href="/blog/{{article.user}}/{{article.id}}">{{article.title}}</a></h3></tr>
-        <p>{{article.text}}</p>
-        <abbr>{{article.user}} 写于 {{article.date}}</abbr>
-        {% endfor %}
-        </td>
-        
-    </div>
+	
+	    <!-----article-area---->
+	    <div id="mainbody">
+	  	 	
+		</div>
+		
+	   <!-- <div class="footer">Copyright©2015-2020 liuliancao. </div>    -->
+   </div>  
+   
+ 
 
 </body>
 </html>

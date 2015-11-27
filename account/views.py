@@ -27,7 +27,7 @@ def register(request):
             else:
                 User.objects.create(username=username,password=password,headimg=headimg)
                 request.session['username']=username
-                return HttpResponseRedirect('/blog')
+                return HttpResponseRedirect('/blog'+username)
     else:
         uf = UserForm()        
     return render_to_response('account/register.html',{'uf':uf},) 
@@ -37,14 +37,14 @@ def register(request):
 def login(request):
     if request.method == 'POST':
         uf = LoginForm(request.POST)
-        UserForm.headimg='1.img'
         if  uf.is_valid():
             username = uf.cleaned_data['username']
             password = uf.cleaned_data['password']
             errors = []
             if User.objects.filter(username__exact=username,password__exact=password):
+                user = User.objects.get(username__exact=username)
                 request.session['username'] = username
-                return HttpResponseRedirect('/blog')
+                return HttpResponseRedirect('/blog/'+username)
             else:
                 errors.append("username and password doesn't match")
                 return render_to_response('account/login.html',{'uf':uf,'errors':errors})

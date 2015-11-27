@@ -8,6 +8,7 @@ class Article(models.Model):
     text = models.TextField()
     user = models.ForeignKey(User)
     date = models.DateTimeField(auto_now=True)
+    category = models.TextField(max_length=30,null=True)
     def __str__(self):
         return self.title 
         
