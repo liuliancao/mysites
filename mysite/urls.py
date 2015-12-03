@@ -19,13 +19,11 @@ from django.conf import settings
 
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
-from shouye import views as shouye_views
 from cuteblog import urls as cuteblog_urls
 from account import urls as account_urls
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     #首页
-    url(r'^$',shouye_views.index),
     #blog
     url(r'^blog/', include(cuteblog_urls)),
     #用户有关

@@ -27,7 +27,7 @@ def register(request):
             else:
                 User.objects.create(username=username,password=password,headimg=headimg)
                 request.session['username']=username
-                return HttpResponseRedirect('/blog'+username)
+                return HttpResponseRedirect('/blog/'+username)
     else:
         uf = UserForm()        
     return render_to_response('account/register.html',{'uf':uf},) 

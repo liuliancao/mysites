@@ -7,35 +7,25 @@
     <meta name="description" content="this is web sharing website."/>
     <!-- get css file -->
     {% load staticfiles %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/header.css' %}" />
-    <link rel="stylesheet" type="text/css" href="{% static 'css/mainbody.css' %}" />
+ 	 <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/cuteblog_index.css' %}" />
     <title>liuliancao</title>
 </head>
 
 <body>   
-	<div class="wrap">  
+	<div class="wrapper">  
 	    <!-- top navigation --> 
-	    <div id="header" >
-	         <div id="logo"><a href="/blog"><span id="p1"><img src="{% static 'img/logo3.png' %}"</a></div></a>
-	         <p id="welcome">Hello&nbsp;&nbsp;<a href="/blog/{{username}}" ><span>{{username}}</span></a>&nbsp;,welcome to liuliancao's website.</p>
-	     		<p id="sideright">
+	    <div >
+	         <div><a href="/blog"><img src="{% static 'img/logo3.png' %}"</a></div></a>
+	         <h3>Hello&nbsp;&nbsp;<a href="/blog/{{username}}" ><span>{{username}}</span></a>&nbsp;,welcome to liuliancao's website.</h3>
+	     		<h4>
 		        		<a  href="/account/register">register</a>&nbsp;&nbsp;
 		        		<a  href="/account/login">login</a>&nbsp;&nbsp;
 		        		<a  href="/account/logout">logout</a>
-	     		</p>
+	     		</h4>
 	        
 		  <hr >	    
 	    </div>
-      
-
-	
-	    <!-----article-area---->
-	    <div id="mainbody">
-	  	 	
-		</div>
-		
-	   <!-- <div class="footer">Copyright©2015-2020 liuliancao. </div>    -->
-   </div>  
    
  
 
