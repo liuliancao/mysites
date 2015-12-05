@@ -1,0 +1,47 @@
+
+*{
+	margin:0;
+	padding:0;
+	font:sans-serif;}
+hr{
+  color:red;
+	border:1px solid red;
+	width: 100%;
+	clear: both;}
+ul{
+	list-style-type: none;}
+p{
+	font-size: 23px;}
+span{
+	color: greenyellow;
+	font-size: 25px;}
+a{
+	font-size: 23px;
+   font-family:sans-serif;}
+
+a:link{
+        text-decoration:none;}
+
+a:hover{
+	text-decoration: underline;
+	color: orange;
+}
+
+#logo{
+	text-align: center;
+	}
+
+#sideright{
+	text-align:right;
+}
+#sideright>a{
+	font:20px;
+	color:lightskyblue;}
+
+.wrap{width:940px;
+margin:0 auto;}
+
+
+#welcome{
+	color: orange;
+	float:left;}

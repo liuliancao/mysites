@@ -1,0 +1,10 @@
+#id_username{
+	width: 300px;}
+
+#id_password{
+	width: 300px;}
+#id_headimg{
+	width: 300px;}
+.container{
+	width: 490px;
+	margin: 18% auto;}	

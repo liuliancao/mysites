@@ -1,0 +1,8 @@
+#id_username{
+	width: 300px;}
+
+#id_password{
+	width: 300px;}
+.container{
+	width: 490px;
+	margin: 20% auto;}

@@ -1,0 +1,32 @@
+*{
+	margin:0;padding: 0;
+	font:20px sans-serif;}
+
+#mainbody{
+	position: relative;
+	padding-bottom:60px; }
+#life{
+	position: absolute;
+	margin-left: 390px;
+	}
+#work{
+	position: absolute;
+	margin-left: 570px;
+	}
+
+#aboutme{
+   position: absolute;
+   margin-left: 840px;}
+#life>a{
+	color:green;}
+#program>a{
+	color:purple;}
+#aboutme>a{
+color:saddlebrown;}
+
+.footer{
+	height: 60px;
+	clear: both;
+	color: #888;
+	text-align: center;
+}
