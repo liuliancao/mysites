@@ -10,25 +10,41 @@ from django import forms
 def get_articles(num):
     article_list_num = Article.objects.order_by('-date')[:num]
     return article_list_num
-    
+
+# search articles by category
+def search_articles_by_category(request,category,username):
+    user = User.objects.get(username=username)
+    article_list_all = user.article_set.all()
+    if category == 'feedback':
+        return render_to_response('cuteblog/feedback.html',{'user':user,})
+    elif category == 'articles':
+        return render_to_response('cuteblog/category.html',{'article_list':article_list_all,})
+    else:  
+        article_list = [ article for article in article_list_all if article.category== category ]
+        return render_to_response('cuteblog/category.html',{'article_list':article_list,})
 def index(request):
     username = request.session.get('username','friend')
     user = {}
     if username != 'friend':
         user = User.objects.get(username=username)
     article_list_10 = get_articles(10)
-    return render_to_response('cuteblog/index.html',{'user':user,'article_list_10':article_list_10,'username':username,})
+    return render_to_response('cuteblog/index.html',{'user':user,'article_list_10':article_list_10,})
 
-def article(request,username):
+def user_index(request,username):
     article_list = []
+    user={}
+    write_access = False
     try:
         user = User.objects.get(username__exact=username)
     except:
         pass
     else:
+        username_session = request.session['username']
         article_list = user.article_set.all()
+        if username_session == username:
+            write_access = True
     finally:
-        return render_to_response('cuteblog/user/index.html',{'article_list':article_list,'username':username,})
+        return render_to_response('cuteblog/user/index.html',{'article_list':article_list,'user':user,'write_access':write_access,})
 
 
 def blog_login(request):
@@ -68,5 +84,7 @@ def write_blog(request,username):
                     return HttpResponseRedirect('/blog/liuliancao/')
               
         else:
-            uf = Write_blogform()
+             uf = Write_blogform()
         return render_to_response("cuteblog/user/write_blog.html",{'Write_blogform':uf,'username':username})
+
+
