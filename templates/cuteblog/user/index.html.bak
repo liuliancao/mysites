@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	{% load staticfiles %}
+ 	 <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}" />
+ 	 <link rel="stylesheet" type="text/css" href="{% static 'css/userpage.css' %}" />
+	<title>{{user.username}}'s blog</title>
+  
+</head>
+<body >
+	<div id="top">
+		<ul class="nav nav-tabs nav-justified">
+			
+			<li id="logo_li"><a href="/blog/{{user.username}}" >liuliancao</a></li><li><a href="life/" target="myframe" >生活点滴</a></li><li><a href="tec" target="myframe">专业技术</a></li><li><a href="/blog/{{user.username}}/feedback" target="myframe">给我反馈</a></li>
+		</ul>	
+	</div>
+	<div class="wrap" >
+			<div class="mainbody">
+			
+			<!--这里是个人ID展示部分
+			     <div class="sideright">
+			   		<ul>
+			   			<li>{% load staticfiles %}
+			   				<img id="headimg" class="img-thumbnail" src="/{{user.headimg}}" alt="sorry" >
+			   			</li>
+						<li><h5>昵称：<span id="username">{{user.username}}</span></h5></li>
+						<li><h5>等级：<span id="level">{{user.level}}</span></h5></li>
+						<li><h5>时间：<span id="register_time">{{user.register_time}}</span></h5></li>
+						<li><h5>签名: <span id="signature">{{user.signature}}</span></h5></li>	
+					</ul>
+	           </div>
+			-->
+	      </div>
+	</div>
+</body>
+</html>

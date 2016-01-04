@@ -1,3 +1,4 @@
+body{background:url(/static/img/login.jpg);}
 #id_username{
 	width: 300px;}
 
@@ -7,4 +8,5 @@
 	width: 300px;}
 .container{
 	width: 490px;
-	margin: 16% auto;}	
+	margin: 16% auto;
+}	

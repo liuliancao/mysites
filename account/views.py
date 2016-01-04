@@ -42,7 +42,6 @@ def login(request):
             password = uf.cleaned_data['password']
             errors = []
             if User.objects.filter(username__exact=username,password__exact=password):
-                user = User.objects.get(username__exact=username)
                 request.session['username'] = username
                 return HttpResponseRedirect('/blog/'+username)
             else:

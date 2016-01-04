@@ -11,4 +11,20 @@ class Article(models.Model):
     category = models.TextField(max_length=30,null=True)
     def __str__(self):
         return self.title 
+'''
+class Shuo(models.Model):
+    text = models.TextField(max_length=100)
+    user = models.ForeignKey(User)
+    img = models.ImageField(upload="./upload/")
+    review = models.TextField()
+    date = models.DateTimeField(auto_now=True)
+    def __str__(self):
+        return self.text
+    def dianzan(self):
+        pass
+    def pinlun(self):
+        pass
+    def show(self):
+        pass
+'''
         

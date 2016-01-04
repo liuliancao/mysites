@@ -1,0 +1,121 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	{% load staticfiles %}
+ 	<link rel="stylesheet" type="text/css" href="{% static 'css/userpage1.css' %}" />
+ 	<link rel="stylesheet" type="text/css" href="{% static 'css/adding.css' %}" />
+	<title>{{user.username}}'s blog</title>
+    <meta name="keywords" content="个人博客" />
+    <meta name="description" content="liuliancao" />
+	
+	<script type="text/javascript" src="/static/js/jquery1.42.min.js"></script>
+	<script type="text/javascript" src="/static/js/jquery.SuperSlide.2.1.1.js"></script>
+</head>
+<body>
+<!--header start-->
+<div id="header">
+	<h1>技术博客</h1>
+</div>
+<!---header stop-->
+<!--nav start-->
+<div id="nav">
+	<ul>
+	<li><a href="/blog/{{user.username}}">首页</a></li>
+	<li><a href="/blog/{{user.username}}/aboutme">关于我</a></li>
+	<li><a href="shuo">闲言碎语</a></li>
+	<li><a href="riji.html">个人日记</a></li>
+	<li><a href="xc.html">相册展示</a></li>
+	<li><a href="learn.html">学无止境</a></li>
+	<li><a href="guestbook.html">留言板</a></li>
+	<div class="clear"></div>
+	</ul>
+</div>
+<!--nav end-->
+<!--content start-->
+<div id="content">
+	<!--left-->
+	<div class="left" id="c_left">
+		{% block content %}
+		<div class="s_tuijian">
+			<h2>文章<span>推荐</span></h2>
+		</div>
+		<div class="content_text">
+		<!--wenzhang1-->
+			{% for article in article_list_left %}
+			<div class="wz">
+				<h3><a href="" title="{{article.title}}">{{article.title}}</a></h3>
+				<dl>
+					<dt><a href="/blog/{{user.username}}/{{article.id}}"><img src="/static/img/s.jpg" width="200" height="123" alt=""></a></dt>		
+					<dd>
+					<p class="dd_text_1">{{article.text}}</p>
+			        <p class="dd_text_2">
+						<span class="left author">{{user.username}}</span><span class="left sj">时间：{{article.date}}</span>
+						<span class="left fl">分类：<a href="/blog/{{user.username}}/{{article.category}}" title="{{article.category}}">{{article.category}}</a></span><span class="left yd"><a href="/blog/{{user.username}}/{{article.id}}" title="阅读全文">阅读全文</a></span>
+						<div class="clear"></div>		        
+			        </p>      
+               		</dd>
+               		<div class="clear"></div>		
+				</dl>
+			</div>
+			{% endfor %}
+		</div>
+		{% endblock %}			
+	</div>
+	
+	<!--left end-->
+	<!--right-->
+	<div class="right" id="c_right">
+		<div class="s_about">
+			<h2>关于博主</h2>
+			<img src="/static/img/logo4.png" alt="博主" width="230" height="230">
+			<p>博主：{{user.username}}</p>
+			<p>职业：运维工程师</p>
+			<p>简介：{{user.signature}}</p>	
+		</div>
+		<!--栏目分类-->
+		<div class="lanmubox">
+			<div class="hd">
+				<ul><li>精心推荐<li>最新文章</li><li class="hd_3">随机文章</li></li></ul>
+			</div>	
+			<div class="bd">
+				<ul>
+					{% for article in article_list_tec %}					
+					<li><a href="/blog/{{user.username}}/{{article.id}}" title="{{article.title}}">{{article.title}}</a></li>			
+					{% endfor %}
+				</ul>	
+				<ul>
+					{% for article in article_list_tec %}					
+					<li><a href="/blog/{{user.username}}/{{article.id}}" title="{{article.title}}">{{article.title}}</a></li>			
+					{% endfor %}
+				</ul>
+				<ul>
+					{% for article in article_list_tec %}					
+					<li><a href="/blog/{{user.username}}/{{article.id}}" title="{{article.title}}">{{article.title}}</a></li>			
+					{% endfor %}
+				</ul>
+			</div>	
+		</div>
+		<!--栏目终止-->
+		<!--友链-->
+		<div class="link">
+			<h2>友情链接</h2>
+			<p><a href="http://qixue.blog.51cto.com" target="_blank">我的51cto</a></p>
+		</div>
+	</div>
+	<!--right end-->
+	<div class="clear"></div>
+</div>
+<!--content end-->
+<!--footer-->
+<div id="footer">
+	<p>Design by:<a href="http://www.liuliancao.com" target="_blank">liuliancao</a> 2015-12-27</p>
+</div>
+<!--footer end-->
+<!--加载jquery脚本-->
+<script type="text/javascript">
+	jQuery(".lanmubox").slide({easing:"easeOutBounce",delayTime:400});
+</script>
+<script type="text/javascript" src="/static/js/nav.js"></script>
+</body>
+</html>

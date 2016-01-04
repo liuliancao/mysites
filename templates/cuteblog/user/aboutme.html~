@@ -1,0 +1,19 @@
+{% extends 'cuteblog/user/index.html' %}
+{% block title %}关于博主{% endblock %}
+{% block content %}
+
+<div class="left" id="about_me">
+    <div class="weizi">
+        <div class="wz_text">当前位置：<a href="/blog/{{user.username}}">首页</a>->关于我</div>
+    </div>
+    <div class="about_content">
+    	<h1>博主介绍</h1>
+    	<p>小博主江苏人，93年，男，白羊座。爱好书法，音乐，阅读，摄影，职业是运维工程师。博主不会扯慌，不会撒娇卖萌，不会精打细算，但乐于分享，本机OpenSuSe13.2+Win10。</p>
+    	<p>联系方式：liuliancao@gmail.com或luqixue@qq.com</p>
+    	<img src="/static/img/aboutme.jpg" alt="" width="730" height="430">
+    	<b>拍于苗寨 ISO 10029.0 mm7/10 EVF5.01/500</b>
+        <!--<p>{{user.signature}}</p>-->
+    </div>
+</div>
+<div class="clear"></div>
+{% endblock %}

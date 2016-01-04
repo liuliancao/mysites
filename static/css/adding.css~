@@ -1,0 +1,18 @@
+@charset 'utf-8';
+*{marigin:0px; padding:0px;}
+body{font-size:14px;font-family:"微软雅黑";background:#E3E3E5 url(../img/aboume.jpg)  50% top scroll no-repeat;color:#5d5d5d;}
+a{text-decoration:none;}
+.left{float:left;}
+.right{float:right;}
+.clear{clear:both;}
+li{list-style:none;}
+img{display:block;border:0px;}
+/*end*/
+.weizi{width: 730px;height: 30px;line-height: 30px;background-color:#fff;
+border-bottom:1px solid #ccc;}
+.weizi .wz_text{font-size: 16px;color: #444;}
+.weizi .wz_text h1{font-size: 16px;color: #444;display: inline;text-decoration: none;}
+.weizi .wz_text a{color: #444;}
+.weizi .wz_text a:hover{text-decoration: underline;color: #f00;}
+.about_content p{text-indent: 2em;}
+.about_content b{float: right;}

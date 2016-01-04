@@ -24,6 +24,7 @@ from account import urls as account_urls
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     #首页
+    url(r'^$',include(cuteblog_urls)),
     #blog
     url(r'^blog/', include(cuteblog_urls)),
     #用户有关
